@@ -48,7 +48,6 @@ class App extends React.Component {
       },
       contadorId: nuevoId,
     });
-    console.log(this.state);
   }
 
   handleDeleteTarea(itemId) {
