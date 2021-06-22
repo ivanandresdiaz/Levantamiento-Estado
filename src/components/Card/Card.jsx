@@ -31,7 +31,7 @@ class Card extends React.Component {
     return (
       <DivCard className="carousel_item">
         <div className='card'>
-        <div className='card-header'>
+        <div className='card-header '>
           <ImgAnimation src={cover()} alt='rover' />
         </div>
         <div className='card-body'>
