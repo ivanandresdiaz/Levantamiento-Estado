@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, FormInput, Button, Select } from './styledAgregarTareas';
+import { Form, FormInput, Button, Select, PId, DivGeneradorId, ButtonGenerator } from './styledAgregarTareas';
 
 class AgregarTareas extends React.Component {
   constructor(props) {
@@ -7,7 +7,8 @@ class AgregarTareas extends React.Component {
   };
 
   render() {
-    const { handleChange, handleEnviar, form } = this.props;
+    const { handleChange, handleEnviar, form, handleGeneradorId } = this.props;
+
     return (
       <>
         <Form onSubmit={handleEnviar}>
@@ -20,7 +21,17 @@ class AgregarTareas extends React.Component {
             <option value='Estudios'>Estudios</option>
             <option value='Casa'>Casa</option>
           </Select>
-          <Button type='submit'>Agregar Tarea</Button>
+          <DivGeneradorId>
+            <ButtonGenerator type='button' onClick={handleGeneradorId}>
+              <PId>
+                Click Obligarorio para generar ID:
+                {' '}
+                {form.id}
+              </PId>
+            </ButtonGenerator>
+          </DivGeneradorId>
+
+          <Button type='submit' disabled={!form.id}>Agregar Tarea con Id {form.id} </Button>
         </Form>
 
       </>

@@ -29,10 +29,9 @@ background-color: #0F0E17;
     padding:6rem 0;
 `;
 export const FormInput = styled.input`
-width:70%;
+  width:70%;
   padding: 10px 20px;
     border-radius: 2px;
-    margin-right: 10px;
     outline: none;
     border: none;
     font-size: 16px;
@@ -42,4 +41,22 @@ export const Select = styled.select`
 width:70%;
 padding: 1rem 0;
 border-radius:5px;
+`;
+export const PId = styled.p`
+color: white;
+`;
+export const DivGeneradorId = styled.div`
+margin-right: 1rem;
+font-size: 16px;
+width:70%;
+display: flex;
+justify-content: center;
+align-items: center;
+`;
+export const ButtonGenerator = styled.button`
+background-color: #E62727;
+padding:1rem 0;
+border-radius: 5px;
+width:96%;
+border: none;
 `;

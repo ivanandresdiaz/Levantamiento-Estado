@@ -14,9 +14,13 @@ class App extends React.Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleGeneradorId = this.handleGeneradorId.bind(this);
+    this.handleDeleteTarea = this.handleDeleteTarea.bind(this);
     this.state = {
+      contadorId: 0,
       tasks: [],
       form: {
+        id: '',
         tarea: '',
         categoria: '',
         fecha: '',
@@ -34,13 +38,33 @@ class App extends React.Component {
     });
   }
 
+  handleGeneradorId(evento) {
+    const nuevoId = this.state.contadorId + 1;
+    this.setState({
+      ...this.state,
+      form: {
+        ...this.state.form,
+        id: nuevoId,
+      },
+      contadorId: nuevoId,
+    });
+    console.log(this.state);
+  }
+
+  handleDeleteTarea(itemId) {
+    this.setState({
+      ...this.state,
+      tasks: this.state.tasks.filter((item) => item.id !== itemId),
+    });
+  }
+
   handleSubmit(evento) {
     evento.preventDefault();
-    console.log('Form a enviar', this.state.form);
     this.setState({
       ...this.state,
       tasks: [...this.state.tasks, this.state.form],
       form: {
+        id: '',
         tarea: '',
         categoria: '',
         fecha: '',
@@ -52,9 +76,9 @@ class App extends React.Component {
     return (
       <DivApp>
         <div>
-          <AgregarTareas handleChange={this.handleChange} form={this.state.form} handleEnviar={this.handleSubmit} />
+          <AgregarTareas handleGeneradorId={this.handleGeneradorId} handleChange={this.handleChange} form={this.state.form} handleEnviar={this.handleSubmit} />
         </div>
-        <ContainerCards tasks={this.state.tasks} />
+        <ContainerCards tasks={this.state.tasks} handleDeleteTarea={this.handleDeleteTarea} />
       </DivApp>
     );
   }
