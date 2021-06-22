@@ -1,0 +1,10 @@
+.carousel_item:hover ~ .carousel_item {
+  animation-duration: 1s;
+  transform: translate3d(20px, 0, 0);
+}
+.containerCarousel:hover .carousel_item {
+  opacity: 0.4;
+}
+.containerCarousel:hover .carousel_item:hover {
+  opacity: 1;
+}
